@@ -13,7 +13,7 @@ for i in range(n):
     pos.append(i+1)
 
 for i in range(1,n):
-    if pontos[i] == ponto[i-1]:
+    if pontos[i] == pontos[i-1]:
         pos[i] = pos[i-1]
 
 for i in range(n):
