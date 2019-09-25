@@ -5,8 +5,11 @@
 chave = input()
 N = int(input())
 
-for i in range(N):
-    frases = input()
+for e in range(N):
+    frase = input()
+    parametro = frase.split()
 
-    if chave in frases:
-        print(frases)
+    for i in range(len(parametro)):
+        if parametro[i] == chave:
+            print(frase)
+
