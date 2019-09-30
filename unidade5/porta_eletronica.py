@@ -1,3 +1,7 @@
+# Universidade Federal de Campina Grande - UFCG
+# Programação - 1
+# Guilherme Aureliano
+
 registro = []
 while True:
     codigo = input().split()
