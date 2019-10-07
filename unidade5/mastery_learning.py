@@ -20,7 +20,7 @@ while True:
         if cont > 2:
             pen += 1
         lista.append(nota)
-        for i in range(len(lista)): # BubbleSort para ordenar os valores do menor ao maior
+        for i in range(len(lista)): # BubbleSort para ordenar os valores da lista do menor ao maior
             for j in range(len(lista) - 1):
                 if lista[j] > lista[j + 1]:
                     lista[j], lista[j + 1] = lista[j + 1], lista[j]
