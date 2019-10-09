@@ -4,27 +4,29 @@
 
 print('Mastery Learning\nCálculo da nota na unidade\n')
 
-cont = soma = 0
-lista = []
-pen = 0
+cont = 0
+pen = 0 # Penalização
+mudou = False # Variável de controle
 
+n1 = n2 = 0 # Nota 1 e Nota 2
 while True:
     if cont == 0:
         nota = float(input('Nota? '))
-        lista.append(nota)
+        n1 = nota
         cont += 1
-        soma += nota
     else:
         cont += 1
         nota = float(input('Nota? '))
+        if cont == 2:
+            n2 = nota
         if cont > 2:
             pen += 1
-        lista.append(nota)
-        for i in range(len(lista)): # BubbleSort para ordenar os valores da lista do menor ao maior
-            for j in range(len(lista) - 1):
-                if lista[j] > lista[j + 1]:
-                    lista[j], lista[j + 1] = lista[j + 1], lista[j]
-        media = (lista[-1] + lista[-2]) / 2
+            if n1 < nota and n1 <= n2: # Verifica se a nova nota lida é maior que nota 1
+                n1 = nota
+                mudou = True
+            if n2 < nota and n2 <= n1 and mudou == False: # Verifica se a nova nota lida é maior que nota 2
+                n2 = nota
+        media = (n1 + n2) / 2
         if media >= 6.5:
             msg = 'aprovado'
         else:
@@ -34,9 +36,8 @@ while True:
         print()
         if msg == 'aprovado':
             print('===')
-            print('Notas válidas: {:.1f} e {:.1f}'.format(lista[-1], lista[-2]))
+            print('Notas válidas: {:.1f} e {:.1f}'.format(n1, n2))
             print('Média parcial na unidade: {}'.format(media))
             print('Penalizações: {:.1f}'.format(pen * 0.5))
             print('Média final na unidade: {:.1f}'.format(media - (pen*0.5)))
             break
-
