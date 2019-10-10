@@ -1,41 +1,26 @@
 # Universidade Federal de Campina Grande - UFCG
-# Programação - 1
+# Programação 1 - 2019.2
 # Guilherme Aureliano
 
-nomes = []
-cont = []
+nomes, quant = [], []
 soma = 0
-parametro = False
 while True:
-    if parametro == False:
-        professor = input()
-    if professor == '**':
-        break
+    professor = input()
+    if professor == '**': break
     else:
-        num = input()
-        if num == '*':
-            cont.append(soma)
-            soma = 0
-            parametro = False
-            if professor == '**':
+        nomes.append(professor)
+        while True:
+            questoes = input()
+            if questoes == '*':
+                quant.append(soma)
+                soma = 0
                 break
             else:
-                nomes.append(professor)
-        else:
-            parametro = True
-            soma += int(num)
-print('Relatório de novas questões:')
-print()
-saida = ''
-for i in range(len(nomes)): # For para concatenar strings
-    if i == len(nomes) - 1:
-        saida += nomes[i]+':'+' '+str(cont[i])
-    else:
-        saida += nomes[i] + ':'+' '+str(cont[i]) + '\n'
-if saida != '':
-    print(saida)
-print('---')
+                soma += int(questoes)
+print('Relatório de novas questões:\n')
 total = 0
-for i in range(len(cont)):
-    total += cont[i]
+for i in range(len(nomes)):
+    print('{}: {}'.format(nomes[i], quant[i]))
+    total += quant[i]
+print('---')
 print('Total de novas questões: {}'.format(total))
