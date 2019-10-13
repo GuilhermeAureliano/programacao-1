@@ -1,3 +1,7 @@
+# Universidade Federal de Campina Grande - UFCG
+# Programação 1 - 2019.2
+# Guilherme Aureliano
+
 def My_split(ipt, sep):
     result = []
     help = ''
